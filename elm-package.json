@@ -1,7 +1,7 @@
 {
     "version": "1.0.1",
     "summary": "History API in Elm",
-    "repository": "https://github.com/TheSeamau5/elm-history.git",
+    "repository": "https://github.com/elm-community/elm-history.git",
     "license": "BSD3",
     "source-directories": [
         "src"
