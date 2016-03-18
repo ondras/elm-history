@@ -48,7 +48,7 @@ The `go` task allows you to move either forwards or backwards in the browser his
 back : Task error ()
 ```
 
-Performing the `back` task is equivalent to pressing the browser back button or calling `go -1`. This will point the browser to the previous page, if available.
+Performing the `back` task is equivalent to pressing the browser back button, or calling `go -1`. This will point the browser to the previous page, if available.
 
 
 - `forward`
@@ -57,7 +57,7 @@ Performing the `back` task is equivalent to pressing the browser back button or 
 forward : Task error ()
 ```
 
-Performing the `forward` task is equivalent to pressing the browser forward button on calling `go 1`. This will point the browser to the next page, if available.
+Performing the `forward` task is equivalent to pressing the browser forward button, or calling `go 1`. This will point the browser to the next page, if available.
 
 
 ## Reacting to url path changes
