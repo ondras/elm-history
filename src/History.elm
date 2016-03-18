@@ -105,3 +105,16 @@ Paths are of the form: `/myPath.html` or `/users/4873/profile.html`
 -}
 path : Signal String
 path = Native.History.path
+
+{-| The current href value of the url. The value is updated
+whenever it is changed, either through interaction or code.
+This is the main way you can create single page applications.
+By incorporating the `href` as an input of your application,
+you are able to react to changes to these hrefs and route
+and re-route your pages accordingly in order to show the most
+appropriate information given the href.
+
+Hrefs are of the form: `https://localhost:1337/myPath.html`
+-}
+href : Signal String
+href = Native.History.href

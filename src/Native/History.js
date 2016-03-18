@@ -23,10 +23,14 @@ Elm.Native.History.make = function(localRuntime){
   // hash : Signal String
   var hash = NS.input('History.hash', window.location.hash);
 
+  // hash : Signal String
+  var href = NS.input('History.href', window.location.href);
+
   localRuntime.addListener([path.id, length.id], node, 'popstate', function getPath(event){
     localRuntime.notify(path.id, window.location.pathname);
     localRuntime.notify(length.id, window.history.length);
     localRuntime.notify(hash.id, window.location.hash);
+    localRuntime.notify(href.id, window.location.href);
   });
 
   localRuntime.addListener([hash.id], node, 'hashchange', function getHash(event){
@@ -41,7 +45,7 @@ Elm.Native.History.make = function(localRuntime){
         window.history.pushState({}, "", urlpath);
         localRuntime.notify(hash.id, window.location.hash);
         localRuntime.notify(length.id, window.history.length);
-
+        localRuntime.notify(href.id, window.location.href);
       },0);
       return callback(Task.succeed(Utils.Tuple0));
     });
@@ -55,6 +59,7 @@ Elm.Native.History.make = function(localRuntime){
         window.history.replaceState({}, "", urlpath);
         localRuntime.notify(hash.id, window.location.hash);
         localRuntime.notify(length.id, window.history.length);
+        localRuntime.notify(href.id, window.location.href);
       },0);
       return callback(Task.succeed(Utils.Tuple0));
     });
@@ -67,6 +72,7 @@ Elm.Native.History.make = function(localRuntime){
         window.history.go(n);
         localRuntime.notify(length.id, window.history.length);
         localRuntime.notify(hash.id, window.location.hash);
+        localRuntime.notify(href.id, window.location.href);
       }, 0);
       return callback(Task.succeed(Utils.Tuple0));
     });
@@ -78,7 +84,7 @@ Elm.Native.History.make = function(localRuntime){
       localRuntime.notify(hash.id, window.location.hash);
       window.history.back();
       localRuntime.notify(length.id, window.history.length);
-
+      localRuntime.notify(href.id, window.location.href);
     }, 0);
     return callback(Task.succeed(Utils.Tuple0));
   });
@@ -89,6 +95,7 @@ Elm.Native.History.make = function(localRuntime){
       window.history.forward();
       localRuntime.notify(length.id, window.history.length);
       localRuntime.notify(hash.id, window.location.hash);
+      localRuntime.notify(href.id, window.location.href);
     }, 0);
     return callback(Task.succeed(Utils.Tuple0));
   });
@@ -103,7 +110,8 @@ Elm.Native.History.make = function(localRuntime){
     back        : back,
     forward     : forward,
     length      : length,
-    hash        : hash
+    hash        : hash,
+    href        : href
   };
 
 };
