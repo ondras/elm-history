@@ -37,8 +37,8 @@ Elm.Native.History.make = function(localRuntime){
   var setPath = function(urlpath){
     return Task.asyncFunction(function(callback){
       setTimeout(function(){
-        localRuntime.notify(path.id, urlpath);
         window.history.pushState({}, "", urlpath);
+        localRuntime.notify(path.id, window.location.pathname);
         localRuntime.notify(hash.id, window.location.hash);
         localRuntime.notify(length.id, window.history.length);
 
@@ -51,8 +51,8 @@ Elm.Native.History.make = function(localRuntime){
   var replacePath = function(urlpath){
     return Task.asyncFunction(function(callback){
       setTimeout(function(){
-        localRuntime.notify(path.id, urlpath);
         window.history.replaceState({}, "", urlpath);
+        localRuntime.notify(path.id, window.location.pathname);
         localRuntime.notify(hash.id, window.location.hash);
         localRuntime.notify(length.id, window.history.length);
       },0);
