@@ -8,7 +8,7 @@ module History where
 @docs back, forward, go
 
 # URL path as input
-@docs path, hash, length
+@docs path, hash, href, length
 
 -}
 
