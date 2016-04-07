@@ -26,7 +26,7 @@ Elm.Native.History.make = function(localRuntime){
   // href : Signal String
   var href = NS.input('History.href', window.location.href);
 
-  localRuntime.addListener([path.id, length.id], node, 'popstate', function getPath(event){
+  localRuntime.addListener([href.id, path.id, length.id], node, 'popstate', function getPath(event){
     localRuntime.notify(path.id, window.location.pathname);
     localRuntime.notify(length.id, window.history.length);
     localRuntime.notify(hash.id, window.location.hash);
