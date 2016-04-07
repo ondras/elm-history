@@ -1,5 +1,5 @@
 {
-    "version": "1.1.0",
+    "version": "1.1.1",
     "summary": "History API in Elm",
     "repository": "https://github.com/elm-community/elm-history.git",
     "license": "BSD3",
