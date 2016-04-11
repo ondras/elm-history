@@ -106,3 +106,10 @@ length : Signal Int
 ```
 
 This is a `Signal` representing the current length of the browser history. This is occasionally useful, mostly as a heuristic to decide on whether to use `setPath` or `replacePath`. This `Signal` can also be used as a general *browser-history-has-changed* `Signal` as it is updated whenever the browser history has changed.
+
+## Testing
+
+This library uses integration tests written in Hound and run in docker-compose.
+
+- Add tests in `/test/integration/suite/test`
+- Run tests by running `make test-integration`
